@@ -9,6 +9,11 @@ jobs:
   print_hello_world:
     runs-on: ubuntu-20.04
     steps:
-      - name: Print hello world
+      - name: print hello world
         run: |
           echo "Hello World!"
+      - name: print date
+        run: |
+        date
+      - name: print directory content
+        ls -l 
