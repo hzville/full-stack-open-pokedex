@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: print hello world
-        run: |
-          echo "Hello World!"
+        run: echo "Hello World!"
+
       - name: print date
-        run: |
-        date
+        run: date
+
       - name: print directory content
-        ls -l 
+        run: ls -l
