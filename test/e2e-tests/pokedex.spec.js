@@ -10,4 +10,11 @@ describe("Pokedex", () => {
       )
     ).toBeVisible();
   });
+  test("open single pokemon page", async ({ page }) => {
+    await page.goto("");
+    await page.getByRole("link", { name: "ivysaur" }).click();
+    await expect(page.getByText("ivysaur")).toBeVisible();
+    await expect(page.getByText("overgrow")).toBeVisible();
+    await expect(page.getByText("chlorophyll")).toBeVisible();
+  });
 });
