@@ -14,7 +14,7 @@ describe("Pokedex", () => {
     await page.goto("");
     await page.getByRole("link", { name: "ivysaur" }).click();
     await expect(page.getByText("ivysaur")).toBeVisible();
-    await expect(page.getByText("overgrow")).toBeVisible();
+    await expect(page.getByText("1overgrow")).toBeVisible();
     await expect(page.getByText("chlorophyll")).toBeVisible();
   });
 });
