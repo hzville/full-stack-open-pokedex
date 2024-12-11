@@ -25,7 +25,7 @@ jobs:
 
       - name: build application
         run: npm run build
-  playwright e2e tests:
+  playwright-e2e-tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
