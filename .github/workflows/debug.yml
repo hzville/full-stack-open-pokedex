@@ -9,7 +9,8 @@ jobs:
   lint:
     runs-on: ubuntu-20.04
     steps:
+      - uses: actions/checkout@v4
       - name: install npm
-        uses: ./.github/workflows/npm-install.yml
+        uses: ./.github/actions/npm-install
       - name: run eslint
         run: npm run eslint

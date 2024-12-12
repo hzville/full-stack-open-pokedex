@@ -1,5 +1,5 @@
-name: Install Node Dependencies
-description: Install node dependencies
+name: install node dependencies
+description: install node dependencies
 
 runs:
   using: "composite"
@@ -8,5 +8,5 @@ runs:
     - uses: actions/setup-node@v4
       with:
         node-version: "20"
-    - name: Install dependencies
+    - name: install dependencies
       run: npm ci
