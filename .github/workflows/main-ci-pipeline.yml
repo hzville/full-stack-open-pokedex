@@ -7,11 +7,11 @@ on:
 
 jobs:
   print-dir:
-  runs-on: ubuntu-20.04
-  steps:
-    - name: List contents of actions folder
-    - uses: actions/checkout@v4
-      run: ls -R .github/actions/
+    runs-on: ubuntu-20.04
+    steps:
+      - name: List contents of actions folder
+      - uses: actions/checkout@v4
+        run: ls -R .github/actions/
 
   lint:
     runs-on: ubuntu-20.04
