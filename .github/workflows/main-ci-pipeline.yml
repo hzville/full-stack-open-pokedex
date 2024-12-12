@@ -7,27 +7,31 @@ on:
 
 jobs:
   lint:
-    uses: ./.github/workflows/common-setup/npm-install.yml
+    runs-on: ubuntu-20.04
     steps:
+      - uses: ./.github/workflows/common-setup/npm-install.yml
       - name: run eslint
         run: npm run eslint
 
   unit-test:
-    uses: ./.github/workflows/common-setup/npm-install.yml
+    runs-on: ubuntu-20.04
     steps:
+      - uses: ./.github/workflows/common-setup/npm-install.yml
       - name: run test
         run: npm run test
 
   build:
-    uses: ./.github/workflows/common-setup/npm-install.yml
+    runs-on: ubuntu-20.04
     steps:
+      - uses: ./.github/workflows/common-setup/npm-install.yml
       - name: build application
         run: npm run build
 
   playwright-e2e-tests:
-    uses: ./.github/workflows/common-setup/npm-install.yml
+    runs-on: ubuntu-20.04
     timeout-minutes: 60
     steps:
+      - uses: ./.github/workflows/common-setup/npm-install.yml
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
