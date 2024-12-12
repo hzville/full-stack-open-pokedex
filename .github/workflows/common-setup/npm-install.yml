@@ -1,0 +1,15 @@
+name: install node dependencies
+
+on: workflow_call
+
+jobs:
+  npm_install:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: install dependencies
+        run: npm ci
