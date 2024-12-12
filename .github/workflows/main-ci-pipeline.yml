@@ -9,21 +9,21 @@ jobs:
   lint:
     runs-on: ubuntu-20.04
     steps:
-      - uses: ./.github/actions/action.yml
+      - uses: /.github/actions/action.yml
       - name: run eslint
         run: npm run eslint
 
   unit-test:
     runs-on: ubuntu-20.04
     steps:
-      - uses: ./.github/actions/action.yml
+      - uses: /.github/actions/action.yml
       - name: run test
         run: npm run test
 
   build:
     runs-on: ubuntu-20.04
     steps:
-      - uses: ./.github/actions/action.yml
+      - uses: /.github/actions/action.yml
       - name: build application
         run: npm run build
 
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 60
     steps:
-      - uses: ./.github/actions/action.yml
+      - uses: /.github/actions/action.yml
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
