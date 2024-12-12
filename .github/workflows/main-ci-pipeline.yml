@@ -6,19 +6,24 @@ on:
       - main
 
 jobs:
-  print-dir:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v4
-      - name: List contents of actions folder
-        run: ls -R .github/actions/
+  # print-dir:
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: List contents of actions folder
+  #       run: ls -R .github/actions/
 
   lint:
-    runs-on: ubuntu-20.04
+    uses: ./.github/workflows/npm-install.yml
     steps:
-      - uses: ./.github/actions/setup-node
       - name: run eslint
         run: npm run eslint
+  # lint:
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - uses: ./.github/actions/setup-node
+  #     - name: run eslint
+  #       run: npm run eslint
 
   unit-test:
     runs-on: ubuntu-20.04
