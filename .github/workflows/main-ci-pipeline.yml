@@ -46,3 +46,14 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+  deploy:
+    runs-on: ubuntu-20.04
+    needs:
+      - lint
+      - unit-test
+      - build
+      - playwright-e2e-tests
+    steps:
+      - name: Trigger deployment
+        env: deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: curl "$deploy_url" 
