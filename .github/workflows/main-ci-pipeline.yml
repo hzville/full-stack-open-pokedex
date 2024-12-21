@@ -64,6 +64,7 @@ jobs:
         run: curl "$deploy_url"
   update-version:
     runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' }}
     needs: [deploy]
     steps:
       - uses: actions/checkout@v4
@@ -71,3 +72,4 @@ jobs:
         uses: anothrNick/github-tag-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
