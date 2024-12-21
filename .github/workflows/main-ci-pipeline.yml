@@ -58,3 +58,11 @@ jobs:
         env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK }}
         run: curl "$deploy_url"
+  update-version:
+    runs-on: ubuntu-20.04
+    needs: [deploy]
+    steps:
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
