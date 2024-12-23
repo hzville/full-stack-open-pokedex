@@ -1,11 +1,17 @@
 name: Periodic health check
 
-#on:
-#schedule:
+# on:
+# schedule:
 #  - cron: "*/10 * * * *"
+
+on:
+  push:
+    branches:
+      - 11.19
 
 jobs:
   health-check:
+    if: false #skip job temporarily
     runs-on: ubuntu-20.04
     timeout-minutes: 2
     steps:
