@@ -32,9 +32,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/npm-install
       - name: run test
-        run: |
-          npm run test
-          exit 1
+        run: npm run test
       - name: Discord failure notification
         if: ${{ failure() }}
         env:
@@ -116,6 +114,7 @@ jobs:
           args: |
             🔴 Failed to deploy new version 🔴
             Commit: ${{ github.sha }}
+
   update-version:
     runs-on: ubuntu-20.04
     if: ${{ github.event_name == 'push' && !contains(toJson(github.event.commits.*.message),'#skip')}}
