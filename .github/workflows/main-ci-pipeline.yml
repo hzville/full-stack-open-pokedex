@@ -24,13 +24,12 @@ jobs:
       - uses: ./.github/actions/npm-install
       - name: run test
         run: npm run test
-      - name: Test Success
-        uses: rjstone/discord-webhook-notify@v1
-        if: success()
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
         with:
-          severity: info
-          details: Test Succeeded!
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          args: "The project has been deployed."
 
   build:
     runs-on: ubuntu-20.04
