@@ -25,11 +25,12 @@ jobs:
       - name: run test
         run: npm run test
       - name: Discord notification
+        if: ${{ failure() }}
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: "The project has been deployed."
+          args: "The project deployment failed."
 
   build:
     runs-on: ubuntu-20.04
