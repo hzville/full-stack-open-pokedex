@@ -17,7 +17,8 @@ jobs:
       - name: run eslint
         run: npm run eslint
       - name: Discord failure notification
-        if: ${{ failure() }}
+        if: ${{ false }} #Skip step temporarily to avoid spamming discord
+        #if: ${{ failure() }}
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
@@ -34,7 +35,8 @@ jobs:
       - name: run test
         run: npm run test
       - name: Discord failure notification
-        if: ${{ failure() }}
+        if: ${{ false }} #Skip step temporarily to avoid spamming discord
+        #if: ${{ failure() }}
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
@@ -51,7 +53,8 @@ jobs:
       - name: build application
         run: npm run build
       - name: Discord failure notification
-        if: ${{ failure() }}
+        if: ${{ false }} #Skip step temporarily to avoid spamming discord
+        #if: ${{ failure() }}
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
@@ -77,7 +80,8 @@ jobs:
           path: playwright-report/
           retention-days: 30
       - name: Discord failure notification
-        if: ${{ failure() }}
+        if: ${{ false }} #Skip step temporarily to avoid spamming discord
+        #if: ${{ failure() }}
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
@@ -100,14 +104,16 @@ jobs:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK }}
         run: curl "$deploy_url"
       - name: Discord success notification
-        if: ${{ success() }}
+        if: ${{ false }} #Skip step temporarily to avoid spamming discord
+        #if: ${{ success() }}
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
           args: 🟢 New version was deployed successfully! 🟢
       - name: Discord failure notification
-        if: ${{ failure() }}
+        if: ${{ false }} #Skip step temporarily to avoid spamming discord
+        #if: ${{ failure() }}
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
