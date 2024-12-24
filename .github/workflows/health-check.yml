@@ -11,7 +11,7 @@ on:
 
 jobs:
   health-check:
-    if: false #skip job temporarily
+    if: ${{ false }} #skip job temporarily
     runs-on: ubuntu-20.04
     timeout-minutes: 2
     steps:
