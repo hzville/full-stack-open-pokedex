@@ -13,3 +13,9 @@ Start by running `npm install` inside the project folder
 `npm run eslint` to run eslint
 `npm run build` to make a production build
 `npm run start-prod` to run your production build
+
+## Task 11.20
+
+Link to repository containing custom app/ci
+
+https://github.com/hzville/Full-stack-open-part-11-custom-app
